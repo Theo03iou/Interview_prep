@@ -68,5 +68,3 @@ sorted_students = sorted(students, key=itemgetter('grade'), reverse=True)
 
 names = ["John Doe", "Jane Smith", "Alice Johnson", "Chris Doe", "Eve Smith"]
 
-sorted_names = sorted(names, key=lambda x: (x.split()[-1], len(x)))
-print(sorted_names)
