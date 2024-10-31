@@ -37,7 +37,7 @@ text = "    Hello World   "
 
 sentence = "Hello world, how are you?"
 words = sentence.split()
-# print(words)
+print(words)
 # print("-".join(words))
 
 # Finding and Counting:
