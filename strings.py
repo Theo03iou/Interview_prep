@@ -81,7 +81,7 @@ age = 20
 # Given two strings, determine if they are anagrams
 
 str1 = "listen"
-str2 = "sildent"
+str2 = "silent"
 
 str1, str2 = str1.lower(), str2.lower()
 def sortFunc(a, b):
