@@ -1,6 +1,6 @@
 # Sets are an unordered collection of unique elements. Particularly useful for operations that involve membership testing, removing duplicates, and performing mathematical set operations like union, intersection, etc.
 
-# Creating a set
+# 1. Creating a set
 
 fruits = {"apple", "banana", "cherry"}
 # Alternatively
