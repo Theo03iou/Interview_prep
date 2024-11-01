@@ -33,15 +33,15 @@ del student_ages["Charlie"]
 #   values(): returns all values
 #   items(): returns all key-value pairs as tuples in a list.
 
-print(student_ages.keys())
-print(student_ages.values())
-print(student_ages.items())
+# print(student_ages.keys())
+# print(student_ages.values())
+# print(student_ages.items())
 
 # Checking for a Key:
 #   You can check if a key exists in a dictionary by using the *in* keyword
 
-print("Alice" in student_ages)
-print("Theo" in student_ages)
+# print("Alice" in student_ages)
+# print("Theo" in student_ages)
 
 
 # 4. Dictionary Comprehension:
@@ -76,9 +76,103 @@ def wordCounter(sentence):
     return word_count
 
 
-print(wordCounter(sentences))
+# print(wordCounter(sentences))
 
 
 # The output should be a dictionary with word counts, like this:
 
 # {"to": 2, "be": 2, "or": 1, "not": 1}
+
+
+# SECOND EXERCISE
+
+def first_unique_char(s):
+    # Step 1: Initialize a dictionary for character counts
+    character_count = {}
+    # Step 2: Populate the dictionary with character counts
+    for letter in s:
+        if letter in character_count:
+            character_count[letter] += 1
+        else:
+            character_count[letter] = 1
+    print(character_count)
+
+    for index, letter in enumerate(s):
+        if character_count[letter] == 1:
+            return index
+    return -1
+
+# Try testing with:
+# print(first_unique_char("loveleetcode"))
+# print(first_unique_char("aabb"))
+
+
+# THIRD EXERCISE
+
+# Given a list of strings, group the anagrams together. An anagram is a word or phrase formed by rearranging the letters...
+# of a different word or phrase, typically using all the original letters exactly once.
+
+# Input: ["eat", "tea", "tan", "ate", "nat", "bat"]
+
+# Output: [["bat"], ["ant", "tan"], ["ate", "eat", "tea"]]
+
+
+def group_anagrams(strs):
+    # Step 1: Initialize a dictionary to hold grouped anagrams
+    anagrams = {}
+
+    # Step 2: Iterate through the list of strings
+    for string in strs:
+
+        # Step 3: Sort the string to use as a key
+        key = ''.join(sorted(string))
+
+        # Step 4: Append the original string to the appropriate list in the dictionary
+        if key not in anagrams:
+            anagrams[key] = []
+        anagrams[key].append(string)
+
+    # Step 5: Return the values of the dictionary
+    return list(anagrams.values())
+
+
+# Test with an example
+# print(group_anagrams(["eat", "tea", "tan", "ate", "ant", "bat"]))
+
+
+# EXERCISE 4
+
+# Problem: Character Frequency Count
+# Description: Given a string, write a function that counts the frequency of each character in the string and returns a...
+# dictionary with characters as keys and their frequencies as values.
+
+def char_frequency(s: str) -> dict:
+    frequency = {}
+
+    for letter in s:
+        if letter not in frequency:
+            frequency[letter] = 1
+        else:
+            frequency[letter] += 1
+    return frequency
+
+
+# print(char_frequency("poop"))
+
+
+# EXERCISE 5
+
+def word_frequency(sentence: str) -> dict:
+    frequency = {}
+    word_list = sentence.lower()
+    word_list = word_list.split()
+    
+    for word in word_list:
+        if word in frequency:
+            frequency[word] += 1
+        else: frequency[word] = 1
+    
+    return frequency
+
+
+print(word_frequency("This is a test"))
