@@ -202,11 +202,11 @@ def most_frequent(nums: list) -> int:
             frequency = count
             element = num
 
-    # for i in num_dictionary:
-    #     print(num_dictionary[i])
-    #     if num_dictionary[i] > frequency:
-    #         frequency = num_dictionary[i]
-    #         element = i
+    for i in num_dictionary:
+        print(num_dictionary[i])
+        if num_dictionary[i] > frequency:
+            frequency = num_dictionary[i]
+            element = i
     return element
 
 
