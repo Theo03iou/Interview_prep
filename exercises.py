@@ -4,6 +4,9 @@
 # An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
 # typically using all the original letters exactly once.
 
+import heapq
+
+
 def is_anagram(s: str, t: str) -> bool:
     return sorted(s) == sorted(t)
 
@@ -56,4 +59,36 @@ def groupAnagrams(str_array: list[str]) -> list[list[str]]:
 
 
 strs = ["eat", "tea", "tan", "ate", "nat", "bat"]
-print(groupAnagrams(strs))
+# print(groupAnagrams(strs))
+
+
+# 4). Problem: Top K Frequent Elements
+
+# Given a list of integers, return the k most frequent elements.
+# You may assume that k is always a valid integer (between 1 and the number of unique elements in the list).
+
+
+def top_k_frequent(nums: list[int], k: int) -> list[int]:
+
+    num_dictionary = {}
+
+    for num in nums:
+        if num in num_dictionary:
+            num_dictionary[num] += 1
+        else:
+            num_dictionary[num] = 1
+
+    min_heap = []
+
+    for num, count in num_dictionary.items():
+        heapq.heappush(min_heap, (count, num))
+        print(min_heap)
+        if len(min_heap) > k:
+            heapq.heappop(min_heap)
+
+    top_k = [num for count, num in min_heap]
+
+    return top_k
+
+
+print(top_k_frequent([4,4,4,4,2,2,3,3,3,5], 3))
