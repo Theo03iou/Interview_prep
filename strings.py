@@ -37,7 +37,7 @@ text = "    Hello World   "
 
 sentence = "Hello world, how are you?"
 words = sentence.split()
-print(words)
+print("Split: ", words)
 # print("-".join(words))
 
 # Finding and Counting:
@@ -75,7 +75,6 @@ age = 20
 # print(f"My name is {name}, and I am {age} years old")
 
 
-
 # EXAMPLE EXERCISE  -  Check if two strings are anagrams
 
 # Given two strings, determine if they are anagrams
@@ -84,9 +83,10 @@ str1 = "listen"
 str2 = "silent"
 
 str1, str2 = str1.lower(), str2.lower()
+
+
 def sortFunc(a, b):
     return sorted(a) == sorted(b)
 
+
 print(sortFunc(str1, str2))
-
-
