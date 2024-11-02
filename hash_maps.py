@@ -166,13 +166,48 @@ def word_frequency(sentence: str) -> dict:
     frequency = {}
     word_list = sentence.lower()
     word_list = word_list.split()
-    
+
     for word in word_list:
         if word in frequency:
             frequency[word] += 1
-        else: frequency[word] = 1
-    
+        else:
+            frequency[word] = 1
+
     return frequency
 
 
-print(word_frequency("This is a test"))
+# print(word_frequency("This is a test"))
+
+
+# EXERCISE 6 -
+# Given a list of integers, write a function that finds the integer that appears most frequently.
+# If there’s a tie for the most frequent element, return the smallest integer among them.
+
+
+def most_frequent(nums: list) -> int:
+    
+    num_dictionary = {}
+    
+    for num in nums:
+        if num in num_dictionary:
+            num_dictionary[num] += 1
+        else:
+            num_dictionary[num] = 1
+
+    frequency = -1
+    element = None
+    
+    for num, count in num_dictionary.items():
+        if count > frequency or (count == frequency and num < element):
+            frequency = count
+            element = num
+
+    # for i in num_dictionary:
+    #     print(num_dictionary[i])
+    #     if num_dictionary[i] > frequency:
+    #         frequency = num_dictionary[i]
+    #         element = i
+    return element
+
+
+print(most_frequent([1, 2, 3, 1, 2, 5, 3, 4, 1, 6]))
