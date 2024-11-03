@@ -91,4 +91,33 @@ def top_k_frequent(nums: list[int], k: int) -> list[int]:
     return top_k
 
 
-print(top_k_frequent([4,4,4,4,2,2,3,3,3,5], 3))
+# print(top_k_frequent([4, 4, 4, 4, 2, 2, 3, 3, 3, 5], 3))
+
+
+# 5). Problem: Valid Anagram
+
+# Given two strings s and t, write a function to determine if t is an anagram of s.
+
+def is_anagram(s: str, t: str) -> bool:
+    anagram_dictionary = {}
+
+    for s_letter in s:
+        if s_letter in anagram_dictionary:
+            anagram_dictionary[s_letter] += 1
+        else:
+            anagram_dictionary[s_letter] = 1
+
+    for t_letter in t:
+        if t_letter in anagram_dictionary:
+            anagram_dictionary[t_letter] -= 1
+
+
+    # Check if all values in the dictionary are zero
+    for count in anagram_dictionary.values():
+        if count != 0:
+            return False
+    return True
+
+
+print(is_anagram("anagram", "nagaram"))  # Expected output: True
+print(is_anagram("rat", "car"))          # Expected output: False
