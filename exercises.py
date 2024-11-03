@@ -111,7 +111,6 @@ def is_anagram(s: str, t: str) -> bool:
         if t_letter in anagram_dictionary:
             anagram_dictionary[t_letter] -= 1
 
-
     # Check if all values in the dictionary are zero
     for count in anagram_dictionary.values():
         if count != 0:
@@ -119,5 +118,70 @@ def is_anagram(s: str, t: str) -> bool:
     return True
 
 
-print(is_anagram("anagram", "nagaram"))  # Expected output: True
-print(is_anagram("rat", "car"))          # Expected output: False
+# print(is_anagram("anagram", "nagaram"))  # Expected output: True
+# print(is_anagram("rat", "car"))          # Expected output: False
+
+
+# 6). Problem 1: Count Element Frequencies
+
+# Write a function that takes a list of integers and returns a dictionary where each key is an integer from the list,
+# and the value is the number of times that integer appears.
+
+def freq_counter(intList: list[int]) -> dict[int, int]:
+    freq_dict = {}
+
+    for num in intList:
+        if num in freq_dict:
+            freq_dict[num] += 1
+        else:
+            freq_dict[num] = 1
+
+    return freq_dict
+
+
+# print(freq_counter([1, 2, 3, 1, 2, 3, 4, 5, 3]))
+
+
+# Problem 2: First Non-Repeating Character
+# Problem: Given a string, return the index of the first non-repeating character. If all characters are repeating, return -1.
+
+def non_repeat(string: str):
+
+    dictionary = {}
+
+    for char in string.lower():
+        if char in dictionary:
+            dictionary[char] += 1
+        else:
+            dictionary[char] = 1
+
+    for index, char in enumerate(string.lower()):
+        if dictionary[char] == 1:
+            return index
+    return -1
+
+
+print(non_repeat("Polop"))
+
+
+# Problem 3: Two-Sum Problem
+
+# Problem: Write a function that takes a list of integers and a target integer. 
+# Return the indices of the two numbers that add up to the target.
+# Example: For nums = [2, 7, 11, 15] and target = 9, return [0, 1].
+
+def two_sum(intList: list[int], target: int) -> list:
+    
+    int_dictionary = {}
+    
+    for index, num in enumerate(intList):
+        int_dictionary[num] = index
+    
+    for num in int_dictionary:
+        complement = target - num
+        if 
+    
+    return int_dictionary
+    
+
+print(two_sum([2, 7, 11, 15], 9))
