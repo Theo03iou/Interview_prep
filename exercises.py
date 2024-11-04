@@ -161,7 +161,7 @@ def non_repeat(string: str):
     return -1
 
 
-print(non_repeat("Polop"))
+# print(non_repeat("Polop"))
 
 
 # Problem 3: Two-Sum Problem
@@ -175,13 +175,25 @@ def two_sum(intList: list[int], target: int) -> list:
     int_dictionary = {}
     
     for index, num in enumerate(intList):
-        int_dictionary[num] = index
-    
-    for num in int_dictionary:
         complement = target - num
-        if 
-    
-    return int_dictionary
-    
+        if complement in int_dictionary:
+            return [int_dictionary[complement], index]
+        int_dictionary[num] = index
+    return -1
 
-print(two_sum([2, 7, 11, 15], 9))
+
+# print(two_sum([13, 6, 5, 4, 11, 15, 3], 10))
+
+
+# Problem 4: Check for Anagram
+
+# 	•	Problem: Write a function that takes in two strings and checks if one string is an anagram of 
+#                the other.
+
+
+
+# Problem 5: Find Longest Substring Without Repeating Characters
+
+# 	•	Problem: Write a function that takes a string and finds the length of the longest substring with 
+#                all unique characters.
+# 	•	Hint: Use a hash map to track the last seen position of each character.
