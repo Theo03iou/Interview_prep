@@ -166,14 +166,14 @@ def non_repeat(string: str):
 
 # Problem 3: Two-Sum Problem
 
-# Problem: Write a function that takes a list of integers and a target integer. 
+# Problem: Write a function that takes a list of integers and a target integer.
 # Return the indices of the two numbers that add up to the target.
 # Example: For nums = [2, 7, 11, 15] and target = 9, return [0, 1].
 
 def two_sum(intList: list[int], target: int) -> list:
-    
+
     int_dictionary = {}
-    
+
     for index, num in enumerate(intList):
         complement = target - num
         if complement in int_dictionary:
@@ -187,13 +187,98 @@ def two_sum(intList: list[int], target: int) -> list:
 
 # Problem 4: Check for Anagram
 
-# 	•	Problem: Write a function that takes in two strings and checks if one string is an anagram of 
+# 	•	Problem: Write a function that takes in two strings and checks if one string is an anagram of
 #                the other.
 
+class Solution:
+    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+        hashy = {}
+
+        for i in strs:
+            sorted_word = "".join(sorted(i))
+            if sorted_word in hashy:
+                hashy[sorted_word].append(i)
+            else:
+                hashy[sorted_word] = [i]
+
+        return list(hashy.values())
+
+
+# Sample input
+test_input = ["eat", "tea", "tan", "ate", "nat", "bat"]
+
+# Create an instance of the Solution class
+solution = Solution()
+
+# Function call
+# print(solution.groupAnagrams(test_input))
 
 
 # Problem 5: Find Longest Substring Without Repeating Characters
 
-# 	•	Problem: Write a function that takes a string and finds the length of the longest substring with 
+# 	•	Problem: Write a function that takes a string and finds the length of the longest substring with
 #                all unique characters.
 # 	•	Hint: Use a hash map to track the last seen position of each character.
+
+
+# Practice Problem: Portmanteau Word Finder
+
+# Problem Description:
+
+# Write a function that takes a list of words and finds the longest “portmanteau” word.
+# A portmanteau word is a word that is created by combining two smaller words from the list.
+# The portmanteau word must be formed by taking the prefix from one word and the suffix from another word.
+
+# 	1.	A word is a “prefix” of another if it starts the word (e.g., “auto” is a prefix of “automatic”).
+# 	2.	A word is a “suffix” of another if it ends the word (e.g., “matic” is a suffix of “automatic”).
+
+# The function should return the longest portmanteau word found in the list, or None if no portmanteau word can be formed.
+
+
+def find_longest_portmanteau(strs: list[str]) -> str:
+    word_list = set(strs)
+    highest = ""
+    for j in range(len(strs)):
+        for i in range(j+1,len(strs)):
+            new_word = strs[j] + strs[i]
+            if new_word in word_list:
+                if len(new_word) l> len(highest):
+                    highest = new_word
+    if highest != "":        
+        return highest
+    else:
+        return "Not valid"
+    
+                    
+            
+    return "Doesn't exist"
+
+    word_list = set(strs)
+    
+    for word1 in word_list:
+        for all_Words in word_list:
+            new_word = word1 + all_Words
+            if new_word in word_list:
+                return new_word
+    return "Doesn't exist"
+
+words = ["auto", "mobile", "photo", "matic", "automate", "automobile", "ation", "graphss", "photographss", "mobilephone", "phone", "mobilemobile"]
+
+# print(find_longest_portmanteau(words))
+
+words1 = ["auto", "matic", "automobile", "graph", "graphite"]
+# Expected: "automatic" (auto + matic)
+
+words2 = ["photo", "graph", "photograph", "auto", "matic"]
+# Expected: "photograph" (photo + graph)
+
+words3 = ["car", "pet", "carpet", "cap", "per"]
+# Expected: "carpet" (car + pet)
+
+words4 = ["swim", "ming", "swimming", "ball", "balling"]
+# Expected: "swimming" (swim + ming)
+
+print("words " + find_longest_portmanteau(words))
+print("words2 " + find_longest_portmanteau(words2))
+print("words3 " + find_longest_portmanteau(words3))
+print("words4 " + find_longest_portmanteau(words4))
